@@ -23,7 +23,7 @@ jobs:
           wget "https://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz"
           tar xzvf "lua-${LUA_VERSION}.tar.gz"
           cd "lua-${LUA_VERSION}"
-          make linux SYSLIBS="-Wl,-E -ldl -lreadline" SYSCFLAGS="-DLUA_USE_LINUX -ULUA_COMPAT_5_2 -DLUA_USE_APICHECK" CC='gcc -g'
+          make linux SYSLIBS="-Wl,-E -ldl -lreadline" SYSCFLAGS="-DLUA_USE_LINUX -ULUA_COMPAT_5_2 -DLUA_USE_APICHECK -DHARDSTACKTESTS=1 -DHARDMEMTESTS=1" CC='gcc -g'
       - name: Install PUC-Rio Lua ${{ matrix.version }}
         env:
           LUA_VERSION: ${{ matrix.version }}
